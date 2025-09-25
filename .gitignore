@@ -1,0 +1,17 @@
+# --- Symfony (backend) ---
+/backend/var/
+/backend/vendor/
+/backend/.env.local
+/backend/.env.test.local
+/backend/config/jwt/*.pem
+
+# --- Flutter (frontend) ---
+/frontend/build/
+/frontend/.dart_tool/
+/frontend/.packages
+/frontend/pubspec.lock
+
+# --- System files ---
+.DS_Store
+.idea/
+.vscode/

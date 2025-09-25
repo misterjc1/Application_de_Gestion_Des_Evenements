@@ -1,0 +1,34 @@
+security:
+    password_hashers:
+        App\Entity\User: 'auto'
+
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login:
+            pattern: ^/api/login
+            stateless: true
+            json_login:
+                check_path: api_login
+                username_path: email
+                password_path: password
+
+        api:
+            pattern: ^/api
+            stateless: true
+            jwt: ~
+
+    access_control:
+        - { path: ^/api/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/register, roles: PUBLIC_ACCESS }
+        - { path: ^/api/events$, roles: PUBLIC_ACCESS, methods: [GET] }
+        - { path: ^/api/events/\d+, roles: PUBLIC_ACCESS, methods: [GET] }
+        - { path: ^/api/events, roles: ROLE_ORGANIZER, methods: [POST, DELETE] }
