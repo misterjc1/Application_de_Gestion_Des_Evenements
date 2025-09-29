@@ -22,10 +22,14 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Gestion Événements',
+        title: 'Mes évènements (Welcome)',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.deepPurple,
+            brightness: Brightness.light,
+          ),
           useMaterial3: true,
+          fontFamily: 'Inter',
         ),
         initialRoute: '/login',
         routes: {
